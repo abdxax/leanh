@@ -69,7 +69,7 @@ $imj=$imgpa[1];
 <?php require 'header_p.php';?>
 
 
-<div class="container" style="margin-top: 90px">
+<div class="container" style="margin-top: 91px">
 	
 
 	<div class="col-md-4 col-md-offset-3">
