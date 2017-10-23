@@ -14,11 +14,12 @@ $msg='';
 	    $ext=strtolower(end(explode('.', $name)));
 	    if (in_array($ext, $avali)){
 	    	if ($size<=409600){
-     
+               
+               $names=strip_tags($_POST['name']);
 
-              if(move_uploaded_file($tem, "files/team_".$name)){
+              if(move_uploaded_file($tem, "files/team_".$names."_".$name)){
               	$path="files/team_".$name;
-              	$names=strip_tags($_POST['name']);
+              	
               	$phone=strip_tags($_POST['phone']);
               	$title=strip_tags($_POST['serves']);
               	$body=strip_tags($_POST['descs']);
@@ -26,20 +27,24 @@ $msg='';
 
               	$sql=$connect->prepare("INSERT INTO initiative (name,type,servestype,des,phone,hours,filepath) VALUES (?,?,?,?,?,?,?)");
               	if ($sql->execute(array($names,"Paresnal",$title,$body,$phone,$hours,$path))){
-              		 $msg="<div class='alert alert-info'>تم الحفظ بنجاح </div>";
+              		 $msg="Done";
+                   header("location:helps.php?msg=Done");
               	}
               	else {
               		$msg="<div class='alert alert-info'>يوجد مشكلة الرجاء التواصل مع الدعم الفني</div>";
+                   header("location:helps.php?msg=".$msg."");
               	}
               }
 
 	    	}
 	    	else{
               $msg="<div class='alert alert-danger'>اقصى حجم للرفع 400 كليو بايت </div>";
+              header("location:helps.php?msg=".$msg."");
 	    	}
 	    }
 	    else{
 	    	$msg="<div class='alert alert-danger'>الرجاء رفع ملف بصيغة pdf </div>";
+        header("location:helps.php?msg=".$msg."");
 	    }
 	}
 
@@ -58,9 +63,9 @@ $msg='';
 
 ?>
 
-<div class="col-md-8" style="margin-top: 15px">
+<div class="col-md-8" style="margin-top: 80px">
  
-	<form class="form-horizontal" method="POST" enctype="multipart/form-data">
+	<form class="form-horizontal" method="POST" enctype="multipart/form-data" >
  						<div class="form-group">
  							<label class="col-md-2 control-label">الاسم</label>
  							<div class="col-md-7">

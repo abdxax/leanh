@@ -28,14 +28,20 @@ if (isset($_POST['saveord'])){
 <body>
 
 <?php require "header_p.php";?>
-<?php if(isset($msg)){
-echo $msg;
+<div style="margin-top: 60px"></div>
+<?php if(isset($_GET['msg'])){
+if ($_GET['msg']=='Done'){
+echo "<div class='alert alert-info'>تم الحفظ بنجاح </div>";
+}
+else{
+echo $_GET['msg'];
+}
 
 } 
 ?>
 <div class="col-sm-6 col-sm-offset-5" style="margin-top: 10px;margin-bottom: 15px;">
 	
-<a href="team.php"  class="btn btn-info "><i class="glyphicon glyphicon-plus"></i> تقديم خدمة </a>
+<a href="team.php"  class="btn btn-info " style="margin-top: 70px"><i class="glyphicon glyphicon-plus"></i> تقديم خدمة </a>
  	</div>
 
 
