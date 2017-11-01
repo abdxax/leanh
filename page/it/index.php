@@ -240,6 +240,55 @@ if (isset($_POST['saveedit'])){
 	
 	}
 
+
+
+   if (isset($_POST['saveword'])){
+   	$name=strip_tags($_POST['nameman']);
+   	$postion=strip_tags($_POST['phn']);
+   	$word=strip_tags($_POST['words']);
+   	if(isset($_FILES['imgman'])){
+       $names=$_FILES['imgman']['name'];
+	$type=$_FILES['imgman']['type'];
+	$tem=$_FILES['imgman']['tmp_name'];
+	$size=$_FILES['imgman']['size'];
+	$avali=array('jpg','png','bmp');
+	 $ext=strtolower(end(explode('.', $names)));
+	 if (in_array($ext, $avali)){
+	 	if ($size<=256000){
+	if(move_uploaded_file($tem, "../images/words_"."".$names)) {
+		$path="../images/words_"."".$names;
+		$res=$connect->prepare("INSERT INTO words (name,postion,imagepath,des) VALUES(?,?,?,?)");
+		if($res->execute(array($name,$postion,$path,$word))){
+			$msg='<div class="alert alert-success text-center"> تم التحديث </div>';
+			header("location:index.php?msg=".$msg."");
+
+		}
+		else{
+			$msg='<div class="alert alert-danger text-center"> 1تواصل مع المبرمج </div>';
+			header("location:index.php?msg=".$msg."");
+
+		}
+	 }
+	 else{
+	 	echo "error1";
+	 	$msg='<div class="alert alert-danger text-center"> 2تواصل مع المبرمج </div>';
+	 	header("location:index.php?msg=".$msg."");
+	 }	
+	 }
+	 else{
+	 	echo "size";
+	 	$msg='<div class="alert alert-danger text-center">الرجاء رفع صورة بحجم 2.5 ميجابايت </div>';
+	 	header("location:index.php?msg=".$msg."");
+	 }
+	 }
+	 else{
+	 	echo "type";
+	 	$msg='<div class="alert alert-danger text-center">الرجاء رفع صورو </div>';
+	 	header("location:index.php?msg=".$msg."");
+	 }
+   	}
+   }
+
  ?>
 
 
@@ -253,11 +302,16 @@ if (isset($_POST['saveedit'])){
 
 	<div class="container">
 	<?php require 'header_pa.php';
-         if (isset($_GET['msg'])){
+         
+	?>
+	<div style="margin-top: 5px">
+		<?php
+if (isset($_GET['msg'])){
          	echo $_GET['msg'];
          }
          echo $msg;
-	?>
+		?>
+	</div>
 	<p class="text-center">last login is </p>
 		<div class="col-md-6" style="margin-top: 25px">
 
@@ -288,7 +342,7 @@ if (isset($_POST['saveedit'])){
 				<a href="#" data-toggle="modal" data-target="#it">
 					<div class="panel panel-default">
 						<div class="panel-heading text-center" >
-							<i class="glyphicon glyphicon-ok " style="font-size:3.5em;"></i>
+							<i class="glyphicon glyphicon-earphone" style="font-size:3.5em;"></i>
 						</div>
 						<div class="panel-body text-center">تفعيل حساب تقنية معلومات </div>
 					</div>
@@ -581,6 +635,66 @@ if (isset($_POST['saveedit'])){
 					</a>
 				</div>
 
+				<div class="col-md-4">
+				<a href="#" data-toggle="modal" data-target="#words">
+					<div class="panel panel-default">
+						<div class="panel-heading text-center">
+							<i class="glyphicon glyphicon-pencil" style="font-size: 3.5em;"></i>
+						</div>
+						<div class="panel-body">اضافة كلمة محفزة </div>
+					</div>
+					</a>
+				</div>
+
+					<div id="words" class="modal fade" role="dialog">
+					
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h3 class="modal-title text-center"> اضافة كلمة محفزة </h3>
+							</div>
+							<div class="modal-body">
+								<form class="form-horizontal" method="POST" enctype="multipart/form-data">
+									<div class="form-group">
+										<label class="col-sm-2 control-label">الاسم </label>
+										<div class="col-md-6">
+											<input type="text" name="nameman" class="form-control" >
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label">الصفة </label>
+										<div class="col-md-6">
+											<input type="text" name="phn" class="form-control" >
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-2 control-label">الكلمة </label>
+										<div class="col-md-6">
+											<textarea name="words" class="form-control" rows="5"></textarea>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label">الصورة </label>
+										<div class="col-md-6">
+											<input type="file" name="imgman" class="form-control">
+										</div>
+									</div>
+									</div>
+									<div class="modal-footer">
+										
+										<input type="submit" name="saveword" class="btn btn-success" value="حفظ">
+										 <button type="button" class="btn btn-default " data-dismiss="modal">اغلاق</button>
+										</form>
+									</div>
+								
+							
+						</div>
+					</div>
+				</div>
+
+
+
 				<div id="edit" class="modal fade" role="dialog">
 					
 					<div class="modal-dialog">
@@ -632,7 +746,7 @@ if (isset($_POST['saveedit'])){
 			</div>
 		</div>
 
-		<div class="col-md-4"> 
+		<div class="col-md-3"> 
 		<p class="text-center">البيانات الشخصية</p>
          <table class="table">
          	<tr>
