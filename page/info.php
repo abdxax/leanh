@@ -72,8 +72,8 @@ $imj=$imgpa[1];
 <div class="container" style="margin-top: 91px">
 	
 
-	<div class="col-md-4 col-md-offset-3">
-		<img src=<?php echo $imj;  ?> class="img-responsive img-rounded center-block">
+	<div class="col-sm-4  col-md-offset-3">
+		<img src=<?php echo $imj;  ?> class="img-responsive img-rounded center-block" style="width: 55%">
 
 	</div>
 	<div class="col-md-9 col-sm-9 col-xs-9 text-center h4">

@@ -38,7 +38,7 @@ if (isset($_POST['savehelp'])){
 
 
 ?>
-<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top   colo">
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top   colo  hidden-xs">
 
 
      <ul class="nav navbar-nav">
@@ -81,7 +81,7 @@ if (isset($_POST['savehelp'])){
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title text-center">اضافة حالة انسانيه</h4>
+        <h4 class="modal-title text-center">طلب خدمة من جمعيات اهلية </h4>
       </div>
       <div class="modal-body">
         <form class="form-horizontal" method="POST">
@@ -131,7 +131,7 @@ if (isset($_POST['savehelp'])){
             </div>
                        </div>
                        <div class="modal-footer">
-                       <input type="submit" name="saveord" class="btn btn-success" value="حفظ">
+                       <input type="submit" name="saveord" class="btn btn-info" value="تقديم">
                          <button type="button" class="btn btn-default " data-dismiss="modal">اغلاق</button>
 </form>
                          
@@ -192,7 +192,7 @@ if (isset($_POST['savehelp'])){
 
 
 
-	<!--<header class="visible-xs visible-sm">
+	<header class="visible-xs ">
 <nav class="navbar navbar-default  colo">
 <div class="navbar-header pull-right">
       <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -201,7 +201,7 @@ if (isset($_POST['savehelp'])){
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-     <!-- <a class="navbar-brand" href="#">Brand</a> 
+    <a class="navbar-brand" href="index.php"><img src="../lenh2.png" style="width: 80px"></a> 
     </div>
 
 	
@@ -214,16 +214,16 @@ if (isset($_POST['savehelp'])){
 
 	</a>
 	-->
-	 <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 		<ul class="nav navbar-nav">
 		<li><a href="index.php">الصقحة الرئيسيه</a></li>
-		<li><a href="index.php">تسجيل دخول</a></li>
-    	 <li ><a href="adds.php" >رفع حالة انسانيه </a></li>
+		
+    	 <li ><a href="#" data-toggle="modal" data-target="#Adds" class="nav-link">رفع طلب</a></li>
     	 <li ><a href="display.php">الجعيات المشاركه</a></li>
     	 <li ><a href="word.php">كلمات محفزة</a></li>
     	<!-- <li ><a href="allstatics.php">احصائياتنا</a></li> -->
-    <!--	 <li ><a href="#">من نحن</a></li>
+     <li ><a href="#">من نحن</a></li>
 		</ul>
 		</div>
 	</nav>

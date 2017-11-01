@@ -327,7 +327,7 @@ if (isset($_GET['msg'])){
 					</a>
 				</div>
 
-				<div class="col-md-4">
+			<!--	<div class="col-md-4">
 				<a href="#" data-toggle="modal" data-target="#adm">
 					<div class="panel panel-default">
 						<div class="panel-heading text-center" >
@@ -336,7 +336,7 @@ if (isset($_GET['msg'])){
 						<div class="panel-body text-center">تفعيل حساب للجهه منفذة</div>
 					</div>
 					</a>
-				</div>
+				</div>-->
 
 				<div class="col-md-4">
 				<a href="#" data-toggle="modal" data-target="#it">
