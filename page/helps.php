@@ -67,9 +67,9 @@ $imj=$imgs[1];
     echo '
 <a href='.$row['filepath'].'>
 <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
+    <div class="thumbnail col-sm-6">
     
-      <img src="'.$imj.'" class="img-responsive col-sm-12" style="margin-bottom:15px">
+      <img src="'.$imj.'" class="img-responsive" style="margin-bottom:15px">
     
      
       <div class="caption " >

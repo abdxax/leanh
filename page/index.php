@@ -25,15 +25,18 @@ $per_page=10;
   
 <?php require 'header_p.php';?>
 
-
+<
 
 <?php 
  if (isset($_GET['msg'])){
   if ($_GET['msg']=="done"){
-    echo '<div class="alert alert-success text-center">تم اضافة الحالة بنجاح</div>';
+    echo '<div class="alert alert-success text-center" style="margin-top: 33px;">تم اضافة الحالة بنجاح</div>';
   }
   else if ($_GET['msg']=="error"){
-    echo '<div class="alert alert-danger text-center">الحالة موجوده من قبل</div>';
+    echo '<div class="alert alert-danger text-center" style="margin-top: 33px;">الحالة موجوده من قبل</div>';
+  }
+  else if ($_GET['msg']=="error_log"){
+     echo '<div class="alert alert-danger text-center" style="margin-top: 33px;">البريد الاكترواني او كلمة المرور خطاء </div>';
   }
  }
 ?>

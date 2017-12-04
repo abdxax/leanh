@@ -36,8 +36,8 @@ $msg='';
 if (isset($_POST['save'])){
 	$name=strip_tags($_POST['volname']);
 	$email=strip_tags($_POST['email']);
-	$pass1=strip_tags($_POST['pass1']);
-	$pass2=strip_tags($_POST['pass2']);
+	$pass1=strip_tags(md5($_POST['pass1']));
+	$pass2=strip_tags(md5($_POST['pass2']));
 	$phone=strip_tags($_POST['phone']);
 	$user=$_SESSION['id'];
 	if ($pass1==$pass2){

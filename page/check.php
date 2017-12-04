@@ -2,7 +2,7 @@
 require "../connnect.php";
 session_start();
 $email=$_POST['email'];
-$pass=$_POST['pass'];
+$pass=md5($_POST['pass']);
 //echo var_dump($email);
 //echo var_dump($pass);
 
@@ -49,6 +49,7 @@ foreach ($sql2 as $row) {
 	$_SESSION['user']=$row['name_voluntray'];
 	$_SESSION['email']=$row['email'];
 	$_SESSION['pass']=$row['password'];
+	//$_SESSION['phone']=$row['phone'];
 	$_SESSION['id']=$row['id'];
 	header("location:voluntarycom/first.php");
 	}
@@ -153,7 +154,8 @@ foreach ($sql2 as $row) {
 else{
 	//echo var_dump($email);
 //echo var_dump($pass);
-echo "user name or pass not true";
+//echo "user name or pass not true";
+	header("location:index.php?msg=error_log");
 }
 
 

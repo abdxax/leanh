@@ -35,8 +35,8 @@ $msg='';
 if (isset($_POST['save'])){
 	$name=strip_tags($_POST['volname']);
 	$email=strip_tags($_POST['email']);
-	$pass1=strip_tags($_POST['pass1']);
-	$pass2=strip_tags($_POST['pass2']);
+	$pass1=strip_tags(md5($_POST['pass1']));
+	$pass2=strip_tags(md5($_POST['pass2']));
 	$user=$_SESSION['user'];
 	if ($pass1==$pass2){
 		$res=$connect->prepare("INSERT INTO voluntarycomp (name_voluntray,email,password,createby)VALUES (?,?,?,?)");
@@ -46,7 +46,7 @@ $res=$connect->prepare("INSERT INTO userAll (email,password,role)VALUES (?,?,?)"
          if($res->execute(array($email,$pass1,"voluntray"))){
 
      ////////////// ////send email to subscribres//////////////////////////////////////////////
-         	$mail=new PHPMailer();
+         	/*$mail=new PHPMailer();
          	$mail->IsSmtp();
          	$mail->SMTPDebug=1;
          	$mail->SMTPAuth=true;
@@ -69,7 +69,22 @@ $res=$connect->prepare("INSERT INTO userAll (email,password,role)VALUES (?,?,?)"
          	else{
          		echo "success send ";
          	}
+*/
 
+$to=$email;
+$subject="اهلا و سهلا بكم في لينة ";
+$body="
+
+<img src='../../lenh2.png' >
+<h3>اهلا و سهلا بكم </h3>
+<p>شاكرين لكم المشاركة في موقع لينة و نتمنى منكم تسجيل الدخول و اكمال البيانات </p>
+
+
+";
+
+$From="From:info@lennah.com";
+
+         	mail($to,$subject,$body,$From);
 
 
 

@@ -44,14 +44,14 @@ if (isset($_FILES['fipdf'])) {
 
               if(move_uploaded_file($tem, "../files/team_".$name)){
               	$path="files/team_".$name;
-              	$names=$_POST['name'];
-              	$phone=$_POST['phone'];
+              	$names=$_SESSION['user'];
+              	//$phone=$_SESSION['phone'];
               	$title=$_POST['serves'];
               	$body=$_POST['descs'];
               	$hours=$_POST['hours'];
 
-              	$sql=$connect->prepare("INSERT INTO initiative (name,type,servestype,des,phone,hours,filepath,id_voluntray) VALUES (?,?,?,?,?,?,?,?)");
-              	if ($sql->execute(array($names,"company",$title,$body,$phone,$hours,$path,$_SESSION['id']))){
+              	$sql=$connect->prepare("INSERT INTO initiative (name,type,servestype,des,hours,filepath,id_voluntray) VALUES (?,?,?,?,?,?,?)");
+              	if ($sql->execute(array($names,"company",$title,$body,$hours,$path,$_SESSION['id']))){
               		 $msg="<div class='alert alert-info'>تم الحفظ بنجاح </div>";
               	}
               	else {

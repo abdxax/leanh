@@ -68,7 +68,7 @@ $user=$_SESSION['user'];
                $num=$res->rowCount();
 
                if ($num==0){
-               	echo '<div class="h3 text-center">لا يوجد موظفين </div>';
+               	echo '<div class="h3 text-center">لا يوجد حالات  </div>';
                }
                else{
                	foreach ($res as $row) {

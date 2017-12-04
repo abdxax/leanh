@@ -15,8 +15,8 @@
 
 
 <?php require "header_p.php";?>
-<div class="container" style="margin-top: 60px">
-<div style="width: 20px;height: 20px"></div>
+<div class="container" style="margin-top: 60px" class="hidden-xs">
+<div style="width: 20px;height: 20px" class="hidden-xs"></div>
 	<div class="row">
       <div class="col-sm-10 col-sm-offset-1">
   <?php
@@ -81,7 +81,7 @@ echo '
                     </div> <!-- end front panel -->
                     <div class="back">
                         <div class="header ">
-                             <img src="../lenh2.png" class="img-responsive col-sm-5"/>
+                             <img src="../lenh2.png" class="img-responsive col-sm-5 col-xs-4"/>
                         </div>
                         <div class="content">
                             <div class="main">

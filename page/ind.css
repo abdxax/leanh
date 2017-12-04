@@ -30,7 +30,10 @@ li a{
 background: #743e4d;
 
 }
-
+ .xs-nav{
+  background: #ebebe6;
+  
+ }
 
 .intro-header {
   padding-top: 50px;

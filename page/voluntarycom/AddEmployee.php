@@ -41,8 +41,8 @@ if ($num<=4){
 	$name=strip_tags($_POST['name']);
 	$phone=strip_tags($_POST['phone']);
 	$email=strip_tags($_POST['email']);
-	$pass=strip_tags($_POST['pass']);
-	$pass2=strip_tags($_POST['pass2']);
+	$pass=strip_tags(md5($_POST['pass']));
+	$pass2=strip_tags(md5($_POST['pass2']));
 
 	if ($pass==$pass2){
 		$res=$connect->prepare("INSERT INTO user (name,email,id_voluntary,password,phone)VALUES (?,?,?,?,?)");

@@ -34,7 +34,7 @@ $magename=$_POST['magename'];
 $de=$_POST['dev'];
 $link=$_POST['link'];
 $phone=$_POST['phone'];
-$email=$_POST['email'];
+//$email=$_POST['email'];
 $do=date("Y-m-d H:i:s");
 
 $bankName=$_POST['bankn'];
@@ -47,12 +47,12 @@ if (isset($_FILES['imagelog'])){
 	$type=$_FILES['imagelog']['type'];
 	$tem=$_FILES['imagelog']['tmp_name'];
 	$size=$_FILES['imagelog']['size'];
-	if(move_uploaded_file($tem, "../images/".$user."".$name)){
-	$img="../images/".$user."".$name;
+	if(move_uploaded_file($tem, "../images/"."volu"."".$name)){
+	$img="../images/"."volu"."".$name;
 
 	$res=$connect->prepare("UPDATE voluntarycomp SET manage_name=?,descri=?,
-imagepath=?,website=?,Lastlogin=?,email=?,phone=? WHERE name_voluntray=?");
-	if ($res->execute(array($magename,$de,$img,$link,$do,$email,$phone,$user))){
+imagepath=?,website=?,Lastlogin=?,phone=? WHERE name_voluntray=?");
+	if ($res->execute(array($magename,$de,$img,$link,$do,$phone,$user))){
 		$_SESSION['img']=$img;
 
 		$sql=$connect->prepare("INSERT INTO pay_way (bankNmae,id_voluntray,AccountNumber,IBAN,descr) VALUES (?,?,?,?,?) ");
@@ -120,12 +120,12 @@ else{
 			<input type="number" name="phone"  class="form-control" >
 		</div>
 	</div>
-	<div class="form-group">
+	<!--<div class="form-group">
 		<label class="col-md-3 control-label">البريد الالكترواني   </label>
 		<div class="col-md-7">
 			<input type="email" name="email"  class="form-control" >
 		</div>
-	</div>
+	</div>-->
 
 
 <div class="form-group">

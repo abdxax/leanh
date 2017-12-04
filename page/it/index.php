@@ -9,8 +9,8 @@ $msg='';
 if (isset($_POST['save'])){
 	$name=strip_tags($_POST['volname']);
 	$email=strip_tags($_POST['email']);
-	$pass1=strip_tags($_POST['pass1']);
-	$pass2=strip_tags($_POST['pass2']);
+	$pass1=strip_tags(md5($_POST['pass1']));
+	$pass2=strip_tags( md5($_POST['pass2']));
 	$user=$_SESSION['user'];
 	if ($pass1==$pass2){
 		$res=$connect->prepare("INSERT INTO voluntarycomp (name_voluntray,email,password,createby)VALUES (?,?,?,?)");
@@ -81,8 +81,8 @@ $res=$connect->prepare("INSERT INTO userAll (email,password,role)VALUES (?,?,?)"
 if (isset($_POST['saveadm'])){
 	$name=strip_tags($_POST['volname']);
 	$email=strip_tags($_POST['email']);
-	$pass1=strip_tags($_POST['pass1']);
-	$pass2=strip_tags($_POST['pass2']);
+	$pass1=strip_tags(md5($_POST['pass1']));
+	$pass2=strip_tags(md5($_POST['pass2']));
 	$phone=strip_tags($_POST['phone']);
 	$dep=strip_tags($_POST['dep']);
 	$type=$_POST['opt'];
@@ -196,8 +196,8 @@ foreach ($res as $row) {
 if (isset($_POST['saveedit'])){
 	$email=strip_tags($_POST['emailedit']);
 	$phone=strip_tags($_POST['phn']);
-	$pass=strip_tags($_POST['password']);
-	$pass2=strip_tags($_POST['password2']);
+	$pass=strip_tags(md5($_POST['password']));
+	$pass2=strip_tags(md5($_POST['password2']));
 
 	if ($pass==""  && $pass2=="" ){
 		$res=$connect->prepare("UPDATE it SET email=? , phone=? WHERE name=? ");
@@ -327,16 +327,16 @@ if (isset($_GET['msg'])){
 					</a>
 				</div>
 
-			<!--	<div class="col-md-4">
+			<div class="col-md-4">
 				<a href="#" data-toggle="modal" data-target="#adm">
 					<div class="panel panel-default">
 						<div class="panel-heading text-center" >
-							<i class="glyphicon glyphicon-ok " style="font-size:3.5em;"></i>
+							<i class="glyphicon glyphicon-asterisk" style="font-size:3.5em;"></i>
 						</div>
 						<div class="panel-body text-center">تفعيل حساب للجهه منفذة</div>
 					</div>
 					</a>
-				</div>-->
+				</div>
 
 				<div class="col-md-4">
 				<a href="#" data-toggle="modal" data-target="#it">
@@ -606,7 +606,7 @@ if (isset($_GET['msg'])){
 				<a href="problemsit.php">
 					<div class="panel panel-default">
 						<div class="panel-heading text-center">
-							<i class="glyphicon glyphicon-leaf" style="font-size: 3.5em"></i>
+							<i class="glyphicon glyphicon-list-alt" style="font-size: 3.5em"></i>
 						</div>
 						<div class="panel-body">المشاكل</div>
 					</div>

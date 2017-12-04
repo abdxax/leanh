@@ -36,6 +36,7 @@ foreach ($sql as $row) {
   $imgs=$row['imagepath'];
   $imgs=explode("../", $imgs);
 $imj=$imgs[1];
+$id_vol=$row['id'];
 /*
   echo '
 <div class="col-xs-6 col-md-3">
@@ -46,8 +47,8 @@ $imj=$imgs[1];
  </div>
   ';
   */
-  $sql2=$connect->prepare("SELECT * FROM  pay_way WHERE id=? ");
- $sql2->execute(array($row['id']));
+  $sql2=$connect->prepare("SELECT * FROM  pay_way WHERE id_voluntray=? ");
+ $sql2->execute(array($id_vol));
 $bankname="";
 $bankaccount="";
 $iban="";

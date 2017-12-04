@@ -15,11 +15,14 @@ $msg='';
 	    if (in_array($ext, $avali)){
 	    	if ($size<=409600){
                
-               $names=strip_tags($_POST['name']);
+              $fil_sql=$connect->prepare("SELECT * FROM initiative");
+              $fil_sql->execute();
+              $count=$fil_sql->rowCount();
+              $count+=1;
 
-              if(move_uploaded_file($tem, "files/team_".$names."_".$name)){
-              	$path="files/team_".$name;
-              	
+              if(move_uploaded_file($tem, "files/team_".$count.$name)){
+              	$path="files/team_".$count.$name;
+              	$names=strip_tags($_POST['name']);
               	$phone=strip_tags($_POST['phone']);
               	$title=strip_tags($_POST['serves']);
               	$body=strip_tags($_POST['descs']);
@@ -60,6 +63,9 @@ $msg='';
 
 <?php require "header_p.php";
 
+if (isset($_GET['msg'])){
+  echo '<div style="margin-top: 80px">'.$_GET['msg'].'</div>';
+}
 
 ?>
 
@@ -85,7 +91,22 @@ $msg='';
  						<div class="form-group">
  							<label class="col-md-2 control-label">نوع الخدمة</label>
  							<div class="col-md-7">
- 								<input type="text" name="serves" class="form-control" required>
+ 								<!--<input type="text" name="serves" class="form-control" required>-->
+                <select class="form-control" name="serves" required >
+                  <option>...</option>
+                  
+                  <?php 
+                  $infos=$connect->prepare("SELECT * FROM kinds where type=?");
+                  $infos->execute(array("team"));
+                  foreach ($infos as $key ) {
+                    echo '
+                   
+                        <option>'.$key['name'].'</option>
+
+                    ';
+                  }
+                  ?>
+                </select>
  							</div>
  						</div>
 

@@ -77,8 +77,8 @@ if (isset($_GET['id_Done'])){
          $goal=$_GET['goal'];
          $have=$_GET['have'];
          $sql=$connect->prepare("INSERT INTO requirestorder (id_user,id_voluntray 
-,name_voluntray,name_applay,phone_applay,name_po,phone_po,des,status,location,goal,havemo)VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
-         if ($sql->execute(array($id_user,$id_val,$name_val,$name_ap,$phone_ap,$name,$phone,$comm,'accept',$lcation,$goal,$have))){
+,name_voluntray,name_applay,phone_applay,name_po,phone_po,des,status,location,goal,havemo,Type)VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+         if ($sql->execute(array($id_user,$id_val,$name_val,$name_ap,$phone_ap,$name,$phone,$comm,'accept',$lcation,$goal,$have,"Personal"))){
                  $msg='<div class="alert alert-success text-center">تم اضافة الحالة بنجاح</div>';
          }
          else{
@@ -92,7 +92,24 @@ if (isset($_GET['id_Done'])){
       
      }
   
+if (isset($_GET['saveprog'])){
+ //  $name=$_GET['namepor'];
+        // $phone=$_GET['phonepor'];
+        // $lcation=$_GET['locationpor'];
+         $comm=$_GET['descs'];
+         $goal=$_GET['goal'];
+         $have=$_GET['have'];
+         $sql=$connect->prepare("INSERT INTO requirestorder (id_user,id_voluntray 
+,name_voluntray,name_applay,phone_applay,des,status,goal,havemo,Type)VALUES (?,?,?,?,?,?,?,?,?,?)");
+         if ($sql->execute(array($id_user,$id_val,$name_val,$name_ap,$phone_ap,$comm,'accept',$goal,$have,"investment"))){
+                 $msg='<div class="alert alert-success text-center">تم اضافة الحالة بنجاح</div>';
+         }
+         else{
+          $msg='<div class="alert alert-danger text-center">الحالة موجوده مسبقا</div>';
+         }
 
+
+}
 //echo $id_val;
 
 
@@ -111,6 +128,8 @@ echo $msg;
  <div class="container">
  <div class="col-sm-6 col-sm-offset-5">
  	<a href="#" data-toggle="modal" data-target="#help" class="btn btn-info "><i class="glyphicon glyphicon-plus"></i>اضافة حالة </a>
+    <a href="#" data-toggle="modal" data-target="#addprog" class="btn btn-info "><i class="glyphicon glyphicon-plus"></i>اضافة فرصة استثمارية </a>
+
  	<div id="help" class="modal fade" role="dialog">
  		<div class="modal-dialog">
  			<div class="modal-content">
@@ -180,6 +199,81 @@ echo $msg;
  		</div>
  	</div>
  </div>
+
+
+
+<div id="addprog" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <p class="modal-title text-center h3">اضافة فرصة استثمارية </p>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal">
+            <div class="form-group">
+             <!-- <label class="col-md-2 control-label">اسم البرنامج </label>
+              <div class="col-md-7">
+                <input type="text" name="namepor" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2 control-label">رقم الجوال</label>
+              <div class="col-md-7">
+                <input type="text" name="phonepor" class="form-control">
+              </div>
+            </div>-->
+
+            
+
+          <!--  <div class="form-group">
+              <label class="col-md-2 control-label">المكان</label>
+              <div class="col-md-7">
+                <input type="text" name="locationpor" class="form-control">
+              </div>
+            </div>-->
+
+            <div class="form-group">
+              <label class="col-md-2 control-label">وصف الحاله</label>
+              <div class="col-md-7">
+                <textarea name="descs" rows="5" class="form-control" ></textarea>
+              </div>
+            </div>
+                   
+
+                   <div class="form-group">
+              <label class="col-md-2 control-label">المبلغ المراد</label>
+              <div class="col-md-7">
+                <input type="number" name="goal" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2 control-label">المبلغ المحصل</label>
+              <div class="col-md-7">
+                <input type="number" name="have" class="form-control">
+              </div>
+            </div>
+
+                       </div>
+
+                       <div class="modal-footer">
+                        
+                        <input type="submit" name="saveprog" class="btn btn-success" value="حفظ">
+                         <button type="button" class="btn btn-default " data-dismiss="modal">اغلاق</button>
+</form>
+                       </div>
+
+          
+        
+      </div>
+    </div>
+  </div>
+ </div>
+
+
+
  	<div class="col-xs-10 col-sm-offset-1">
  		<table class="table">
  			<thead>

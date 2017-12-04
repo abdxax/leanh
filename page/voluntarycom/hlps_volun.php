@@ -66,7 +66,7 @@ else{
                    <td>'.$row['phone'].'</td>
                    <td>'.$row['servestype'].'</td>
                    <td>'.$row['des'].'</td>
-                   <td><a href=../'.$row['filepath'].'>e</a></td>
+                   <td><a href=../'.$row['filepath'].'>تفاصيل المبادرة </a></td>
                 </tr>
 
 

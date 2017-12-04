@@ -193,16 +193,25 @@ if (isset($_POST['savehelp'])){
 
 
 	<header class="visible-xs ">
-<nav class="navbar navbar-default  colo">
+    <div class="col-xs-2">
+  <a href="index.php"><img src="../lenh2.png" class="center-block img-responsive col-xs-offset-6"></a>
+</div>
+<!--<nav class="navbar navbar-default  xs-nav">
 <div class="navbar-header pull-right">
       <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
+
       </button>
-    <a class="navbar-brand" href="index.php"><img src="../lenh2.png" style="width: 80px"></a> 
-    </div>
+     <!-- <div class="col-xs-2">
+          <a class="navbar-brand" href="index.php"><img src="../lenh2.png" class="img-responsive col-xs-2">
+          </a> 
+
+      </div>-->
+  
+   <!-- </div>
 
 	
 	<!--<a href="#" class="navbar-brand pull-right dropdown-toggle " data-toggle="dropdown">حسابي
@@ -214,7 +223,7 @@ if (isset($_POST['savehelp'])){
 
 	</a>
 	-->
-	 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	<!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 		<ul class="nav navbar-nav">
 		<li><a href="index.php">الصقحة الرئيسيه</a></li>
@@ -223,7 +232,7 @@ if (isset($_POST['savehelp'])){
     	 <li ><a href="display.php">الجعيات المشاركه</a></li>
     	 <li ><a href="word.php">كلمات محفزة</a></li>
     	<!-- <li ><a href="allstatics.php">احصائياتنا</a></li> -->
-     <li ><a href="#">من نحن</a></li>
+    <!-- <li ><a href="#">من نحن</a></li>
 		</ul>
 		</div>
 	</nav>

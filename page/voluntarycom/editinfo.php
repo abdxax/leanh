@@ -102,8 +102,8 @@ if (isset($_FILES['imagelog'])){
 	
 
 	 if ($size<=256000){
-	if(move_uploaded_file($tem, "../images/".$user."".$name)){
-	$img="../images/".$user."".$name;
+	if(move_uploaded_file($tem, "../images/"."volu"."".$name)){
+	$img="../images/"."volu"."".$name;
 
 	$res=$connect->prepare("UPDATE voluntarycomp SET imagepath=? WHERE name_voluntray=?");
 	if ($res->execute(array($img,$user))){
