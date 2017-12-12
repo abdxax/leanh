@@ -28,7 +28,7 @@
 				<a href="#" class="  dropdown-toggle " data-toggle="dropdown">حسابي</a>
 				<ul class="dropdown-menu">
 					<li><a href="editinfo.php">تعديل البيانات</a></li>
-					<li><a href="#">تسجيل خروج</a></li>
+					<li><a href="logout.php">تسجيل خروج</a></li>
 					
 				</ul>
 			</li>

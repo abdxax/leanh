@@ -23,7 +23,7 @@ require "../../connnect.php";
 				<a href="#" class="navbar-brand  dropdown-toggle " data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i></a>
 				<ul class="dropdown-menu">
 					<!--<li><a href="#">تعديل البيانات</a></li>-->
-					<li><a href="#">تسجيل خروج</a></li>
+					<li><a href="logout.php">تسجيل خروج</a></li>
 					
 				</ul>
 			</li>
@@ -35,6 +35,7 @@ require "../../connnect.php";
 </button>
 </a>
 </li>
+<li><a href="benfe.php">بوابة المستفيدين </a></li>
 			<li><a href="support.php">تواصل مع الدعم الفني </a></li>
 		</ul>
 	</nav>
