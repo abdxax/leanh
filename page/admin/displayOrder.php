@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['email']) && isset($_SESSION['pass'])==true){
   $sql=$connect->prepare("SELECT * FROM userall WHERE email=? AND password=?");
   $sql->execute(array($_SESSION['email'],$_SESSION['pass']));
-  if ($sql2->rowCount()==1){
+  if ($sql->rowCount()==1){
          $sql2=$connect->prepare("SELECT * FROM admin WHERE email=? AND password=?");
          $sql2->execute(array($_SESSION['email'],$_SESSION['pass']));
          if ($sql2->rowCount()==1){

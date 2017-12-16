@@ -59,7 +59,7 @@ else{
          echo '
          
            <tr>
-            <td><a href=detels_ben.php?id='.$row['id_govs'].'>'.$row['name'].'</a></td>
+            <td><a href=detels_ben.php?id='.$row['id_govs'].' & id_item_de='.$row['id_items'].'>'.$row['name'].'</a></td>
               <td>'.$row['id_govs'].'</td>
                <td>'.$row['phone'].'</td>
                 <td>'.$row['house_type'].'</td>

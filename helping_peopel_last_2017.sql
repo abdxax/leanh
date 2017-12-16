@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2017 at 11:43 PM
+-- Generation Time: Dec 15, 2017 at 01:24 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -46,6 +46,58 @@ INSERT INTO `admin` (`id`, `name`, `department`, `phone`, `email`, `password`, `
 (1, 'Ahmad', 'maga', '66667666', 'aaa@aa.a', '1112', '', '0000-00-00', ''),
 (3, 'ali', 'gov', '44545455666', 'sa@gov.sa', '123', '', '0000-00-00', 'yes'),
 (4, 'fefe', 'dfdf', '4545453', 'aasa@gffd.n', '123', '', '0000-00-00', 'yes');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `beneficiary`
+--
+
+CREATE TABLE `beneficiary` (
+  `id` int(11) NOT NULL,
+  `id_gov` int(20) NOT NULL,
+  `name` text COLLATE utf8_unicode_ci NOT NULL,
+  `phone` int(11) NOT NULL,
+  `house_type` text COLLATE utf8_unicode_ci NOT NULL,
+  `rent` text COLLATE utf8_unicode_ci NOT NULL,
+  `Monthly_income` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `beneficiary`
+--
+
+INSERT INTO `beneficiary` (`id`, `id_gov`, `name`, `phone`, `house_type`, `rent`, `Monthly_income`) VALUES
+(1, 1094906623, ' vvbfgfgf', 0, 'شقة', 'لا', '2000'),
+(2, 1094906599, 'wqwqwq', 2555568, 'بيت', 'نعم', '12'),
+(3, 23232323, 'dsds', 323232, 'بيت', 'نعم', '23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detl_benef`
+--
+
+CREATE TABLE `detl_benef` (
+  `id` int(11) NOT NULL,
+  `id_govs` int(11) NOT NULL,
+  `id_vo` int(11) NOT NULL,
+  `help_type` text COLLATE utf8_unicode_ci NOT NULL,
+  `helps_mon` text COLLATE utf8_unicode_ci NOT NULL,
+  `statuses` text COLLATE utf8_unicode_ci NOT NULL,
+  `end_helps` text COLLATE utf8_unicode_ci NOT NULL,
+  `resoun` text COLLATE utf8_unicode_ci NOT NULL,
+  `Notes` text COLLATE utf8_unicode_ci NOT NULL,
+  `files_paths` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `detl_benef`
+--
+
+INSERT INTO `detl_benef` (`id`, `id_govs`, `id_vo`, `help_type`, `helps_mon`, `statuses`, `end_helps`, `resoun`, `Notes`, `files_paths`) VALUES
+(1, 23232323, 39, 'عينية', '1212', 'NO', '2017-12-12 23:27:29', 'صض', '', '../files/volun123232323ReportComp.pdf'),
+(2, 23232323, 39, 'عينية', '1212', 'NO', '2017-12-12 23:27:29', 'صض', '', '../files/volun223232323ReportComp.pdf');
 
 -- --------------------------------------------------------
 
@@ -293,7 +345,7 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`, `id_voluntary`, `phone`, 
 (14, 'fahads', 'fs@gov.sa', '123', '', '123', '0000-00-00', 'yes', 3),
 (15, 'saad', 'sad@gov.sa', '123', '', '123', '0000-00-00', 'yes', 14),
 (16, 'kahlad', 'kh@gmail.com', '123', '', '123', '0000-00-00', 'yes', 15),
-(17, 'احمد خالد ', 'bbbb@bb.b', '202cb962ac59075b964b07152d234b70', '39', '05685454', '0000-00-00', '', 0);
+(17, 'احمد خالد ', 'bbbb@bb.b', '202cb962ac59075b964b07152d234b70', '39', '05685454', '2017-12-06', '', 0);
 
 -- --------------------------------------------------------
 
@@ -343,7 +395,7 @@ CREATE TABLE `voluntarycomp` (
 --
 
 INSERT INTO `voluntarycomp` (`id`, `name_voluntray`, `email`, `password`, `descri`, `phone`, `manage_name`, `imagepath`, `Lastlogin`, `createby`, `website`) VALUES
-(39, 'جمعية احسان ', 'aaaa@aa.a', '202cb962ac59075b964b07152d234b70', 'جمعية خيرية تدعم الانسان ', '0165661179', 'عبدالرحمن', '../images/volurefaq.jpg', '2017-12-04', 'جمعية رفاق ', '');
+(39, 'جمعية احسان ', 'aaaa@aa.a', '202cb962ac59075b964b07152d234b70', 'جمعية خيرية تدعم الانسان ', '0165661179', 'عبدالرحمن', '../images/volurefaq.jpg', '2017-12-06', 'جمعية رفاق ', '');
 
 -- --------------------------------------------------------
 
@@ -377,6 +429,19 @@ INSERT INTO `words` (`id`, `name`, `postion`, `imagepath`, `des`) VALUES
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `beneficiary`
+--
+ALTER TABLE `beneficiary`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_gov` (`id_gov`);
+
+--
+-- Indexes for table `detl_benef`
+--
+ALTER TABLE `detl_benef`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `family`
@@ -466,6 +531,16 @@ ALTER TABLE `words`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `beneficiary`
+--
+ALTER TABLE `beneficiary`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `detl_benef`
+--
+ALTER TABLE `detl_benef`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `family`
 --

@@ -43,6 +43,10 @@ $_SESSION['income_benf']=$income;
 }
 
 
+if (isset($_GET['sub'])) {
+  header("location:detels_ben.php?id=".strip_tags($_GET['id_gov'])."");
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,7 +61,13 @@ if(isset($_GET['msg'])){
   if ($_GET['msg']=="Done") {
     echo "<div class='alert alert-success text-center'>تم اضافة المستفيد </div>";
   }
+
+  if ($_GET['msg']=="Done2") {
+    echo "<div class='alert alert-success text-center'>تم تحديث حالة مستفيد </div>";
+  }
 }
+
+
 
 ?>
 <div class="container">

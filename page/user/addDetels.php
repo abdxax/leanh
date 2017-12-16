@@ -32,6 +32,7 @@ $counts=$sql_ben->rowCount();
 
 if ($counts==1){
 $msg="هذا المستفيد مسجل مسبقا ";
+header("location:detels_ben.php?reg=reg&id=".$id_goves."");
 }
 
 else{
